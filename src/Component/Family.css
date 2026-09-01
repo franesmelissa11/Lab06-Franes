@@ -1,0 +1,282 @@
+:root {
+  --bg: #f3fbf4;
+  --bg-soft: #dff3e2;
+  --card: #ffffff;
+  --card-border: #c9e5ce;
+  --text: #1f3a28;
+  --muted: #55705b;
+  --accent: #4f9d69;
+  --accent-dark: #2f7548;
+  --gold: #d49d32;
+  --shadow: rgba(47, 117, 72, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 42%);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.burger-app {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.header {
+  background: #ffffff;
+  border-bottom: 2px solid #c9e5ce;
+}
+
+.header-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dff3e2;
+  font-size: 1.4rem;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.navigation a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.navigation a:hover {
+  color: var(--accent-dark);
+}
+
+.cart-icon {
+  position: relative;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 50%;
+  background: #eef9ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b9dbbf;
+}
+
+.cart-symbol {
+  font-size: 1.2rem;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -0.2rem;
+  right: -0.15rem;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.main-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 1rem 0 1.75rem;
+}
+
+.hero-title {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.hero-description {
+  max-width: 620px;
+  margin: 0.9rem auto 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.burger-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.burger-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 12px var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.burger-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px var(--shadow);
+}
+
+.card-image-container {
+  height: 180px;
+  overflow: hidden;
+}
+
+.burger-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.08rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.star {
+  display: inline-block;
+}
+
+.star.full {
+  color: var(--gold);
+}
+
+.star.half {
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+.star.empty {
+  color: #e4d9d0;
+}
+
+.wishlist-btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid #b9dbbf;
+  border-radius: 7px;
+  background: #f3fbf4;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.wishlist-btn.active {
+  background: #dff3e2;
+  border-color: var(--accent);
+}
+
+.burger-name {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.burger-description {
+  margin: 0;
+  min-height: 72px;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 0.94rem;
+}
+
+.card-footer {
+  margin-top: 1rem;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+@media (max-width: 720px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navigation {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .hero-section {
+    padding-top: 1rem;
+  }
+}
