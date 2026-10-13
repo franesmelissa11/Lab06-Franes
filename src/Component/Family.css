@@ -109,6 +109,8 @@ a {
   align-items: center;
   justify-content: center;
   border: 1px solid #b9dbbf;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .cart-symbol {
@@ -131,10 +133,137 @@ a {
   color: #fff;
 }
 
+.featured-slider {
+  position: relative;
+  max-width: 1000px;
+  height: clamp(230px, 38vw, 380px);
+  margin: 1.25rem auto 0;
+  overflow: hidden;
+  background: #1f3a28;
+}
+
+.featured-slide {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.featured-slide::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.68));
+  content: '';
+}
+
+.featured-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-slide-caption {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.5rem;
+  left: 2rem;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  font-weight: 800;
+}
+
+.slider-control {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(31, 58, 40, 0.72);
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.slider-previous {
+  left: 1rem;
+}
+
+.slider-next {
+  right: 1rem;
+}
+
+.slider-dots {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.slider-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider-dot.active {
+  background: #fff;
+}
+
 .main-content {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1.5rem 1.25rem 3rem;
+}
+
+.menu-section,
+.checkout-section {
+  scroll-margin-top: 1rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+
+.section-heading h2,
+.special-section h2,
+.checkout-section h2 {
+  margin: 0.3rem 0 0;
+  color: var(--text);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.eyebrow {
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.shop-link,
+.footer a {
+  color: var(--accent-dark);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.shop-link span {
+  margin-left: 0.3rem;
 }
 
 .hero-section {
@@ -237,8 +366,13 @@ a {
 }
 
 .wishlist-btn.active {
-  background: #dff3e2;
-  border-color: var(--accent);
+  background: #fff0f0;
+  border-color: #ef7171;
+  color: #df3030;
+}
+
+.wishlist-btn.active span {
+  color: #df3030;
 }
 
 .burger-name {
@@ -257,6 +391,10 @@ a {
 
 .card-footer {
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .price {
@@ -265,7 +403,198 @@ a {
   color: var(--accent-dark);
 }
 
+.primary-button {
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent-dark);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.7rem 0.9rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.quantity-controls {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #b9dbbf;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f3fbf4;
+}
+
+.quantity-button {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: transparent;
+  color: var(--accent-dark);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.quantity-button:hover:not(:disabled) {
+  background: #dff3e2;
+}
+
+.quantity-button:disabled {
+  color: #aabdb0;
+  cursor: not-allowed;
+}
+
+.quantity-value {
+  min-width: 1.5rem;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.add-button:hover,
+.primary-button:hover {
+  background: #215c38;
+  transform: translateY(-1px);
+}
+
+.special-section {
+  margin: 4rem 0;
+  padding: 2.2rem;
+  border-radius: 12px;
+  background: #1f3a28;
+  color: #fff;
+}
+
+.special-section h2 {
+  max-width: 520px;
+  color: #fff;
+}
+
+.special-section p,
+.checkout-copy p {
+  color: #bdd5c1;
+  line-height: 1.5;
+  margin: 0.8rem 0 1.4rem;
+}
+
+.special-section .primary-button,
+.checkout-button {
+  display: inline-flex;
+  background: #e5b85b;
+  color: #1f3a28;
+}
+
+.checkout-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.checkout-form,
+.empty-checkout {
+  padding: 1.25rem;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.empty-checkout {
+  text-align: center;
+}
+
+.empty-icon {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-size: 2rem;
+}
+
+.empty-checkout p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.order-summary {
+  margin-bottom: 1.2rem;
+}
+
+.order-line,
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  color: var(--muted);
+  border-bottom: 1px solid #e4f0e5;
+}
+
+.total-line {
+  color: var(--text);
+  font-size: 1.1rem;
+  border-bottom: 0;
+}
+
+.checkout-form label {
+  display: block;
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.checkout-form input,
+.checkout-form select {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  border: 1px solid #b9dbbf;
+  border-radius: 6px;
+  padding: 0.75rem;
+  color: var(--text);
+  background: #f8fcf8;
+}
+
+.checkout-button {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.success-message {
+  margin: 0.8rem 0 0;
+  color: #2f7548;
+  font-weight: 800;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--card-border);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
 @media (max-width: 720px) {
+  .featured-slider {
+    margin: 0.75rem 0 0;
+  }
+
+  .featured-slide-caption {
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  .slider-dots {
+    bottom: 1.25rem;
+  }
+
   .header-content {
     flex-wrap: wrap;
     justify-content: center;
@@ -278,5 +607,26 @@ a {
 
   .hero-section {
     padding-top: 1rem;
+  }
+
+  .section-heading,
+  .checkout-section,
+  .footer {
+    display: block;
+  }
+
+  .shop-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+  }
+
+  .checkout-form,
+  .empty-checkout {
+    margin-top: 1.5rem;
+  }
+
+  .footer a {
+    display: inline-block;
+    margin-top: 0.6rem;
   }
 }
